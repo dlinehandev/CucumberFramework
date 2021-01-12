@@ -4,4 +4,4 @@
 /Libraries/*.xml
 /*.xml
 ../target
-.idea/
+idea/

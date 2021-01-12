@@ -1,5 +1,9 @@
+package runner;
+
+import core.TestConfig;
 import io.cucumber.junit.Cucumber;
 import io.cucumber.junit.CucumberOptions;
+import org.junit.BeforeClass;
 import org.junit.runner.RunWith;
 
 @RunWith(Cucumber.class)
@@ -10,4 +14,11 @@ import org.junit.runner.RunWith;
 )
 
 public class TestRunner {
+
+    @BeforeClass
+    public static void test() throws Exception {
+        String env = System.getenv("env").toLowerCase();
+        TestConfig.load(env);
+        TestConfig.addProperty("env",env);
+    }
 }

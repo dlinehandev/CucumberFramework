@@ -1,25 +1,22 @@
 package steps;
 
-import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
-import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 
-public class HomeSteps {
+public class HomeSteps extends BaseStep {
+
+    public HomeSteps()  {
+    }
 
     @Given("I am on the Expedia homepage")
     public void navigateToExpedia() {
-        System.out.println("Navigate to Expedia");
+        getHomepage().launchExpedia();
+        System.out.println("Navigated to Expedia");
     }
 
-    @When("I choose hotel booking tab")
-    public void iChooseHotelBookingTab() {
-        System.out.println("I choose hotel booking tab");
-
-    }
-
-    @And("I provide hotel booking information and click search")
-    public void iProvideHotelBookingInformationAndClickSearch() {
+    @When("I provide hotel booking information and click search")
+    public void iProvideHotelBookingInformationAndClickSearch() throws InterruptedException {
+        getHomepage().enterOneWayFlightDetails("Dublin", "London", "02/05/2021");
         System.out.println("I provide hotel booking information and click search");
 
     }
